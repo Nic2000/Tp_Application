@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/contact', 'ContactController@create')->name('contact');
+
+Route::post('/addContact', 'ContactController@addContact')->name('addContact');
+
+Route::get('/contactList', 'ContactController@contactList')->name('contactList');
+
+Route::get('/deleteContact/{id?}', 'ContactController@deleteContact')->name('deleteContact/{id?}');
+?>

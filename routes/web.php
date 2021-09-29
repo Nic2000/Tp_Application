@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::resource('contact', 'ContactController');
+Route::resource('contact', 'ContactController')->except(['show']);
 Route::get('contact.add_contact','ContactController@add_contact')->name('add_contact');
+Route::get('contact.show/{id?}','ContactController@show')->name('show');

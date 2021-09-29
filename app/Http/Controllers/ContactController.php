@@ -72,13 +72,15 @@ class ContactController extends Controller
      */
     public function show($id=null)
     {
+        $contact  = new Contact();
+
             if($id){
 
+                $contacts = $contact->findById($id);
             } else {
-                $contact  = new Contact();
                 $contacts = $contact->findAll();
-                return view("contact.list_contact",compact('contacts'));
             }
+            return view("contact.list_contact",compact('contacts'));
     }
 
     /**

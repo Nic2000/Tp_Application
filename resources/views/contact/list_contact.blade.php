@@ -37,8 +37,11 @@
 
                     <tr>
                         <td scope="row">{{ $contact->id }}</td>
-                        <td>{{ $contact->first_name.' '.$contact->last_name }}</td>
-                        <td>{{ $contact->email }}</td>
+                        <td>{{ $contact->first_name.' '.$contact->last_name }} </td>
+                        <td>
+                            <a class="nav-link active" aria-current="page" href="{{ route('show',$contact->id) }}">
+                                {{ $contact->email }}</a>
+                        </td>
                         <td>{{ $contact->job_title  }}</td>
                         <td>{{ $contact->city }}</td>
                         <td>{{ $contact->country }}</td>

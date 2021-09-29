@@ -28,5 +28,9 @@ class Contact extends Model
 
     public function findAll(){  return Contact::get();   }
 
+    public function findById($id){
+        return Contact::where('id',$id)->get();
+    }
+
 
 }

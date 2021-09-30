@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::get('/contact', 'AllcontactController@store')->name('contact');
 
-// permetant d'utilser fonction route generer par controller sauf la fonction show quiest exclu
-Route::resource('contact', 'ContactController')->except(['show']);
+Route::get('/liste', 'AllcontactController@liste_contact')->name('liste');
 
-// permetant avoir le path d'ajouter nouveau contact
-Route::get('contact.add_contact','ContactController@add_contact')->name('add_contact');
+Route::get('/action/{id}', 'AllcontactController@action')->name('action');
 
-
-// permetant avoir les liste de contact avec id static(c-a-d si id diff null return la liste sinon return tout liste)
-Route::get('contact.show/{id?}','ContactController@show')->name('show');
+Route::get('/modifier/{id}', 'AllcontactController@modifier')->name('modifier');

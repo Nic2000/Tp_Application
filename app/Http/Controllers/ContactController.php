@@ -10,45 +10,34 @@ use Illuminate\Validation\Rule;
 class ContactController extends Controller
 {
 
-
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $contact  = new Contact();
-        $contacts = $contact->findAll();
-        return view("contact.list_contact",compact('contacts'));
-
-    }
 
     /**
      * Show the form for creating a new resource.
      *@param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    // =======================================validation formulaire
     public function create(Request $request)
     {
 
-
-        $this->validate($request, [
-            'name' => 'required',
-            'username' => 'required',
-            'email' => 'required|email',
-            'city' => 'required',
-            'country' => 'required',
-            'job_title' => 'required'
-            // 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-        ]);
-
         $contact = new Contact();
+
+        // verifie validation formulaire
+        $contact->verify_validation_form($request);
+
+        // ajout nouveaux contact
         $contact->insert($request->input());
         return back()->with('success', 'add new contact is succed!');
     }
 
+
+    // =================================url pour acceder a la page creation de nouveaux
     public function add_contact(){
         return view('contact/add_contact');
     }
@@ -70,6 +59,8 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     // ============================url permant d'acceder sur le page de la liste
     public function show($id=null)
     {
         $contact  = new Contact();

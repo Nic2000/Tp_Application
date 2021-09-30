@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//formulaire contact
 Route::get('/contact', 'ContactController@create')->name('contact');
-
+//add contact
 Route::post('/addContact', 'ContactController@addContact')->name('addContact');
-
+//find all contacts
 Route::get('/contactList', 'ContactController@contactList')->name('contactList');
-
+//delete contact
 Route::get('/deleteContact/{id?}', 'ContactController@deleteContact')->name('deleteContact/{id?}');
 ?>

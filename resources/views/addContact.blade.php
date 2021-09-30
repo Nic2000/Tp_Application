@@ -1,3 +1,6 @@
+@extends("layouts.menu")
+@section("content")
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contact</title>
-    <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
+    
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Add Contact</h1>
-                <a href="{{ route('contactList') }}"><button type="button" class="btn btn-primary">Contacts</button></a>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success alert-block">
                         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -71,6 +72,7 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset("js/bootstrap.bundle.min.js") }}"></script>
+    
 </body>
 </html>
+@endsection

@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Dotenv\Validator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Contact extends Model
 {
@@ -20,5 +22,30 @@ class Contact extends Model
         $contact->jobtitle = $input['jobtitle'];
 
         $contact->save();
+    }
+
+    public static function addContact_rules($data){
+        $messages = [
+            'firstname.required' => 'Entrer votre nom svp',
+            'firstname.alpha' => 'Votre nom est incorrect',
+            'lastname.required' => 'Entrer votre prénom svp',
+            'lastname.alpha' => 'Votre nom est incorrect',
+            'email.required' => 'Entrer votre email svp',
+            'email.email' => 'Votre email est  incorrect',
+            'city.required' =>'Entrer votre ville svp',
+            'country.required' =>'Entrer votre pays svp',
+            'jobtitle.required' =>'Entrer votre emploi svp'
+        ];
+
+
+        $rules = [
+            'firstname' => 'required|alpha',
+            'lastname' => 'required|alpha',
+            'email' => 'required|email',
+            'city' => 'required',
+            'country' => 'required',
+            'jobtitle' => 'required'
+        ];
+        $validator = $data->validate($rules,$messages);
     }
 }

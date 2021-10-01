@@ -67,6 +67,82 @@ class Contact extends Model
             'job_title' => 'required|string|alpha'
             // 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
         ];
+        $imput->validate($critereForm, $rules);
+    }
+
+    public function verify($imput){
+
+        // message selon critere
+
+        $rules=[
+            'name.required' => 'the name field must not be nul ',
+            'name.alpha' => 'the name field must not contain digits or number ',
+            'name.min' => 'the name character minimum does not inferiour 1',
+            'name.max' => 'the name character minimum does not superiour 1',
+            'username.required' => 'the username field must not be nul ',
+            'username.alpha' => 'the username field must not contain digits or number ',
+            'city.required' => 'the city field must not be nul ',
+            'city.alpha' => 'the city field must not contain digits or number ',
+            'country.required' => 'the country field must not be nul ',
+            'country.alpha' => 'the country field must not contain digits or number ',
+            'email.required' => 'the email field must not be nul ',
+            'email.alpha' => 'the email field must  container @ and . ',
+            'email.email' => ' email is type email does not other type',
+            'job_title.required' => 'the job title field must not be nul ',
+            'job_title.alpha' => 'the job title field must not contain digits or number '
+        ];
+
+        // parfeu des champs
+        $critereForm=[
+            'name' => 'required|string|min:2|max:100|alpha',
+            'username' => 'required|string|alpha',
+            'email' => 'required|email',
+            'city' => 'required|string|alpha',
+            'country' => 'required|string|alpha',
+            'job_title' => 'required|string|alpha'
+            // 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+        ];
+
+        $val = $imput->validate($critereForm, $rules);
+       return $val;
+
+
+
+
+    }
+
+    public function teste($imput,$val){
+
+        // message selon critere
+
+        $rules=[
+            'name.required' => 'the name field must not be nul ',
+            'name.alpha' => 'the name field must not contain digits or number ',
+            'name.min' => 'the name character minimum does not inferiour 1',
+            'name.max' => 'the name character minimum does not superiour 1',
+            'username.required' => 'the username field must not be nul ',
+            'username.alpha' => 'the username field must not contain digits or number ',
+            'city.required' => 'the city field must not be nul ',
+            'city.alpha' => 'the city field must not contain digits or number ',
+            'country.required' => 'the country field must not be nul ',
+            'country.alpha' => 'the country field must not contain digits or number ',
+            'email.required' => 'the email field must not be nul ',
+            'email.alpha' => 'the email field must  container @ and . ',
+            'email.email' => ' email is type email does not other type',
+            'job_title.required' => 'the job title field must not be nul ',
+            'job_title.alpha' => 'the job title field must not contain digits or number '
+        ];
+
+        // parfeu des champs
+        $critereForm=[
+            'name' => 'required|string|min:2|max:100|alpha',
+            'username' => 'required|string|alpha',
+            'email' => 'required|email',
+            'city' => 'required|string|alpha',
+            'country' => 'required|string|alpha',
+            'job_title' => 'required|string|alpha'
+            // 'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+        ];
 
         $imput->validate($critereForm, $rules);
 

@@ -25,18 +25,36 @@ class ContactController extends Controller
     // =======================================validation formulaire
     public function create(Request $request)
     {
-
         $contact = new Contact();
-
-        // verifie validation formulaire
         $contact->verify_validation_form($request);
-
         // ajout nouveaux contact
         $contact->insert($request->input());
-        return back()->with('success', 'add new contact is succed!');
+        return response()->json(['success' => 'add new contact is succed!']);
+
     }
 
+    public function testeCreate(Request $request){
+        $contact = new Contact();
+        $contact->verify_validation_form($request);
+        $contact->insert($request->input());
+        $contact->verify_validation_form($request);
+       $val = $contact->verify($request);
+        if ($val->passes()) {
+            return response()->json(['error'=>$val->errors()->all()]);
+        }
 
+        $this->insert($request->input());
+        return back()->with('success', 'add new contact is succed!');
+
+    }
+
+    /*
+    public function testeCreate(Request $request){
+        $contact = new Contact();
+
+        return Contact::verify($request);
+    }
+*/
     // =================================url pour acceder a la page creation de nouveaux
     public function add_contact(){
         return view('contact/add_contact');

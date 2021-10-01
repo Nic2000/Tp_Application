@@ -7,11 +7,11 @@ jQuery(document).ready(function(){
             }
         });
 
-        var url = "{{ url('create') }}";
+
         jQuery.ajax({
 
            // url: "{{ route('create') }}",
-            url:url,
+            url:"contact.create",
             method: 'post',
             data: $('#form_add_contact').serialize(),
             success: function(data){

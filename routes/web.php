@@ -27,3 +27,5 @@ Route::post('/contact.create','ContactController@create')->name('create');
 
 // permetant avoir les liste de contact avec id static(c-a-d si id diff null return la liste sinon return tout liste)
 Route::get('contact.show/{id?}','ContactController@show')->name('show');
+
+Route::get('/','webapp\LoginController@index')->name('login');

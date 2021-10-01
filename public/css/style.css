@@ -1,24 +1,24 @@
-.container {
+/* .container {
     max-width: 500px;
     margin: 50px auto;
     text-align: left;
     font-family: sans-serif;
-}
+} */
 
-form {
+/* form {
     border: 1px solid #1A33FF;
     background: #ecf5fc;
     padding: 40px 50px 45px;
-}
+} */
 
-.form-control:focus {
+/* .form-control:focus {
     border-color: #000;
     box-shadow: none;
-}
+} */
 
-label {
+/* label {
     font-weight: 600;
-}
+} */
 
 .error {
     color: red;
@@ -31,4 +31,51 @@ label {
 .form-control.error {
     border-color: red;
     padding: .375rem .75rem;
+}
+
+.border-imput-login{
+    font-size: 19px;
+    border-radius: 10rem;
+    background-color: #b9b9b9;
+    height: 50px;
+    text-align: start;
+    padding-left: 50px;
+}
+.btn-login{
+    font-size: 20px;
+    background-color: #04803A;
+    width: 300px;
+    height: 48;
+    color: white;
+    border-radius: 5rem;
+}
+.btn-login:hover{
+    color: white;
+}
+
+.forgot-login{
+    float: right;
+    text-decoration: none;
+    color: #101010;
+    font-weight: bold;
+}
+.forgot-login:hover{
+    color: #E7B000;
+}
+
+.design-login-tete {
+
+    color: white;
+    background-color: #04803A;
+    width: auto;
+    height: 70px;
+}
+
+.border-form-login{
+    border-radius: 20px;
+}
+
+.logo{
+    width: 138px;
+    height: 49px;
 }
